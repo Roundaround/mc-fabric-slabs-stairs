@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "slabsstairs",
+  "version": "${version}",
+  "name": "Slabs & Stairs",
+  "description": "Add slab and stair variants for all vanilla blocks.",
+  "authors": [
+    "Roundaround"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/roundaround-slabs-stairs",
+    "sources": "https://github.com/Roundaround/mc-fabric-slabs-stairs",
+    "issues": "https://github.com/Roundaround/mc-fabric-slabs-stairs/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/slabsstairs/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "me.roundaround.slabsstairs.data.SlabsStairsDataGen"
+    ],
+    "main": [
+      "me.roundaround.slabsstairs.SlabsStairsMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "1.19.x",
+    "java": ">=17"
+  }
+}
