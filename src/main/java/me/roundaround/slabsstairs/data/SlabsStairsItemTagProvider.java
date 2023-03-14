@@ -24,6 +24,21 @@ public class SlabsStairsItemTagProvider extends ItemTagProvider {
   public static final TagKey<Item> CONCRETE_BUTTONS = TagKey.of(
       Registry.ITEM_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_buttons"));
+  public static final TagKey<Item> TERRACOTTA_SLABS = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "terracotta_slabs"));
+  public static final TagKey<Item> TERRACOTTA_STAIRS = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "terracotta_stairs"));
+  public static final TagKey<Item> TERRACOTTA_WALLS = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "terracotta_walls"));
+  public static final TagKey<Item> TERRACOTTA_PRESSURE_PLATES = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "terracotta_pressure_plates"));
+  public static final TagKey<Item> TERRACOTTA_BUTTONS = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "terracotta_buttons"));
 
   public SlabsStairsItemTagProvider(FabricDataGenerator dataGenerator, BlockTagProvider blockTagProvider) {
     super(dataGenerator, blockTagProvider);
@@ -36,5 +51,10 @@ public class SlabsStairsItemTagProvider extends ItemTagProvider {
     copy(SlabsStairsBlockTagProvider.CONCRETE_WALLS, CONCRETE_WALLS);
     copy(SlabsStairsBlockTagProvider.CONCRETE_PRESSURE_PLATES, CONCRETE_PRESSURE_PLATES);
     copy(SlabsStairsBlockTagProvider.CONCRETE_BUTTONS, CONCRETE_BUTTONS);
+    copy(SlabsStairsBlockTagProvider.TERRACOTTA_SLABS, TERRACOTTA_SLABS);
+    copy(SlabsStairsBlockTagProvider.TERRACOTTA_STAIRS, TERRACOTTA_STAIRS);
+    copy(SlabsStairsBlockTagProvider.TERRACOTTA_WALLS, TERRACOTTA_WALLS);
+    copy(SlabsStairsBlockTagProvider.TERRACOTTA_PRESSURE_PLATES, TERRACOTTA_PRESSURE_PLATES);
+    copy(SlabsStairsBlockTagProvider.TERRACOTTA_BUTTONS, TERRACOTTA_BUTTONS);
   }
 }

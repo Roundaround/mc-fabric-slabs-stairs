@@ -16,33 +16,31 @@ public class SlabsStairsRecipeProvider extends FabricRecipeProvider {
 
   @Override
   protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
-    SlabsStairsBlocks.CONCRETE_SLABS.forEach((entry) -> {
-      RecipeProvider.createSlabRecipe(entry.slab, Ingredient.ofItems(entry.source))
-          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
-          .offerTo(exporter);
-      RecipeProvider.offerStonecuttingRecipe(exporter, entry.slab, entry.source, 2);
-    });
-
-    SlabsStairsBlocks.CONCRETE_STAIRS.forEach((entry) -> {
-      RecipeProvider.createStairsRecipe(entry.stairs, Ingredient.ofItems(entry.source))
-          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
-          .offerTo(exporter);
-      RecipeProvider.offerStonecuttingRecipe(exporter, entry.stairs, entry.source);
-    });
-
-    SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
-      RecipeProvider.offerWallRecipe(exporter, entry.wall, entry.source);
-      RecipeProvider.offerStonecuttingRecipe(exporter, entry.wall, entry.source);
-    });
-
-    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
-      RecipeProvider.offerPressurePlateRecipe(exporter, entry.pressurePlate, entry.source);
-    });
-
-    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
-      RecipeProvider.createTransmutationRecipe(entry.button, Ingredient.ofItems(entry.source))
-          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
-          .offerTo(exporter);
+    SlabsStairsBlocks.ALL_MOD_BLOCKS.forEach((entry) -> {
+      if (entry.hasSlab()) {
+        RecipeProvider.createSlabRecipe(entry.getSlab(), Ingredient.ofItems(entry.getSource()))
+            .criterion(RecipeProvider.hasItem(entry.getSource()), RecipeProvider.conditionsFromItem(entry.getSource()))
+            .offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, entry.getSlab(), entry.getSource(), 2);
+      }
+      if (entry.hasStairs()) {
+        RecipeProvider.createStairsRecipe(entry.getStairs(), Ingredient.ofItems(entry.getSource()))
+            .criterion(RecipeProvider.hasItem(entry.getSource()), RecipeProvider.conditionsFromItem(entry.getSource()))
+            .offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, entry.getStairs(), entry.getSource());
+      }
+      if (entry.hasWall()) {
+        RecipeProvider.offerWallRecipe(exporter, entry.getWall(), entry.getSource());
+        RecipeProvider.offerStonecuttingRecipe(exporter, entry.getWall(), entry.getSource());
+      }
+      if (entry.hasPressurePlate()) {
+        RecipeProvider.offerPressurePlateRecipe(exporter, entry.getPressurePlate(), entry.getSource());
+      }
+      if (entry.hasButton()) {
+        RecipeProvider.createTransmutationRecipe(entry.getButton(), Ingredient.ofItems(entry.getSource()))
+            .criterion(RecipeProvider.hasItem(entry.getSource()), RecipeProvider.conditionsFromItem(entry.getSource()))
+            .offerTo(exporter);
+      }
     });
   }
 }

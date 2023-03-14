@@ -12,24 +12,22 @@ public class SlabsStairsLootTableProvider extends FabricBlockLootTableProvider {
 
   @Override
   protected void generateBlockLootTables() {
-    SlabsStairsBlocks.CONCRETE_SLABS.forEach((entry) -> {
-      addDrop(entry.slab, BlockLootTableGenerator::slabDrops);
-    });
-
-    SlabsStairsBlocks.CONCRETE_STAIRS.forEach((entry) -> {
-      addDrop(entry.stairs);
-    });
-
-    SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
-      addDrop(entry.wall);
-    });
-
-    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
-      addDrop(entry.pressurePlate);
-    });
-
-    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
-      addDrop(entry.button);
+    SlabsStairsBlocks.ALL_MOD_BLOCKS.forEach((entry) -> {
+      if (entry.hasSlab()) {
+        addDrop(entry.getSlab(), BlockLootTableGenerator::slabDrops);
+      }
+      if (entry.hasStairs()) {
+        addDrop(entry.getStairs());
+      }
+      if (entry.hasWall()) {
+        addDrop(entry.getWall());
+      }
+      if (entry.hasPressurePlate()) {
+        addDrop(entry.getPressurePlate());
+      }
+      if (entry.hasButton()) {
+        addDrop(entry.getButton());
+      }
     });
   }
 }

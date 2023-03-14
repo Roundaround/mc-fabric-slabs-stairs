@@ -13,29 +13,23 @@ public class SlabsStairsLangProvider extends AbstractLangProvider {
 
   @Override
   protected void addTranslations(BiConsumer<String, String> consumer) {
-    SlabsStairsBlocks.CONCRETE_SLABS.forEach((entry) -> {
-      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
-      consumer.accept(entry.slab.getTranslationKey(), sourceName + " Slab");
-    });
-
-    SlabsStairsBlocks.CONCRETE_STAIRS.forEach((entry) -> {
-      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
-      consumer.accept(entry.stairs.getTranslationKey(), sourceName + " Stairs");
-    });
-
-    SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
-      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
-      consumer.accept(entry.wall.getTranslationKey(), sourceName + " Wall");
-    });
-
-    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
-      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
-      consumer.accept(entry.pressurePlate.getTranslationKey(), sourceName + " Pressure Plate");
-    });
-
-    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
-      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
-      consumer.accept(entry.button.getTranslationKey(), sourceName + " Button");
+    SlabsStairsBlocks.ALL_MOD_BLOCKS.forEach((entry) -> {
+      String sourceName = Text.translatable(entry.getSource().getTranslationKey()).getString();
+      if (entry.hasSlab()) {
+        consumer.accept(entry.getSlab().getTranslationKey(), sourceName + " Slab");
+      }
+      if (entry.hasStairs()) {
+        consumer.accept(entry.getStairs().getTranslationKey(), sourceName + " Stairs");
+      }
+      if (entry.hasWall()) {
+        consumer.accept(entry.getWall().getTranslationKey(), sourceName + " Wall");
+      }
+      if (entry.hasPressurePlate()) {
+        consumer.accept(entry.getPressurePlate().getTranslationKey(), sourceName + " Pressure Plate");
+      }
+      if (entry.hasButton()) {
+        consumer.accept(entry.getButton().getTranslationKey(), sourceName + " Button");
+      }
     });
   }
 }

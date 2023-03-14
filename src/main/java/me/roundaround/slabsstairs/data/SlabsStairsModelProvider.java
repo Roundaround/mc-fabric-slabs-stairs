@@ -25,24 +25,22 @@ public class SlabsStairsModelProvider extends FabricModelProvider {
 
   @Override
   public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-    SlabsStairsBlocks.CONCRETE_SLABS.forEach((entry) -> {
-      registerSlab(entry.slab, entry.source, blockStateModelGenerator);
-    });
-
-    SlabsStairsBlocks.CONCRETE_STAIRS.forEach((entry) -> {
-      registerStairs(entry.stairs, entry.source, blockStateModelGenerator);
-    });
-
-    SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
-      registerWall(entry.wall, entry.source, blockStateModelGenerator);
-    });
-
-    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
-      registerPressurePlate(entry.pressurePlate, entry.source, blockStateModelGenerator);
-    });
-
-    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
-      registerButton(entry.button, entry.source, blockStateModelGenerator);
+    SlabsStairsBlocks.ALL_MOD_BLOCKS.forEach((entry) -> {
+      if (entry.hasSlab()) {
+        registerSlab(entry.getSlab(), entry.getSource(), blockStateModelGenerator);
+      }
+      if (entry.hasStairs()) {
+        registerStairs(entry.getStairs(), entry.getSource(), blockStateModelGenerator);
+      }
+      if (entry.hasWall()) {
+        registerWall(entry.getWall(), entry.getSource(), blockStateModelGenerator);
+      }
+      if (entry.hasPressurePlate()) {
+        registerPressurePlate(entry.getPressurePlate(), entry.getSource(), blockStateModelGenerator);
+      }
+      if (entry.hasButton()) {
+        registerButton(entry.getButton(), entry.getSource(), blockStateModelGenerator);
+      }
     });
   }
 
