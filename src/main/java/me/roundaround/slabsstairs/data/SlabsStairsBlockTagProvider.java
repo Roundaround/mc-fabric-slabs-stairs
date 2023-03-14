@@ -11,9 +11,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SlabsStairsBlockTagProvider extends BlockTagProvider {
-  public static final TagKey<Block> CONCRETE = TagKey.of(
-      Registry.BLOCK_KEY,
-      new Identifier(SlabsStairsMod.MOD_ID, "concrete"));
   public static final TagKey<Block> CONCRETE_SLABS = TagKey.of(
       Registry.BLOCK_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_slabs"));
@@ -36,12 +33,6 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
 
   @Override
   protected void generateTags() {
-    getOrCreateTagBuilder(CONCRETE)
-        .add(SlabsStairsBlocks.CONCRETE_SLABS
-            .stream()
-            .map(entry -> entry.source)
-            .toArray(Block[]::new));
-
     getOrCreateTagBuilder(CONCRETE_SLABS)
         .add(SlabsStairsBlocks.CONCRETE_SLABS
             .stream()

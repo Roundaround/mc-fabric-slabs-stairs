@@ -9,9 +9,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SlabsStairsItemTagProvider extends ItemTagProvider {
-  public static final TagKey<Item> CONCRETE = TagKey.of(
-      Registry.ITEM_KEY,
-      new Identifier(SlabsStairsMod.MOD_ID, "concrete"));
   public static final TagKey<Item> CONCRETE_SLABS = TagKey.of(
       Registry.ITEM_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_slabs"));
@@ -34,7 +31,6 @@ public class SlabsStairsItemTagProvider extends ItemTagProvider {
 
   @Override
   protected void generateTags() {
-    copy(SlabsStairsBlockTagProvider.CONCRETE, CONCRETE);
     copy(SlabsStairsBlockTagProvider.CONCRETE_SLABS, CONCRETE_SLABS);
     copy(SlabsStairsBlockTagProvider.CONCRETE_STAIRS, CONCRETE_STAIRS);
     copy(SlabsStairsBlockTagProvider.CONCRETE_WALLS, CONCRETE_WALLS);

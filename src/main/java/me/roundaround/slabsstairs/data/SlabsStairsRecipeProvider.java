@@ -18,14 +18,14 @@ public class SlabsStairsRecipeProvider extends FabricRecipeProvider {
   protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
     SlabsStairsBlocks.CONCRETE_SLABS.forEach((entry) -> {
       RecipeProvider.createSlabRecipe(entry.slab, Ingredient.ofItems(entry.source))
-          .criterion("has_concrete", RecipeProvider.conditionsFromTag(SlabsStairsItemTagProvider.CONCRETE))
+          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
           .offerTo(exporter);
       RecipeProvider.offerStonecuttingRecipe(exporter, entry.slab, entry.source, 2);
     });
 
     SlabsStairsBlocks.CONCRETE_STAIRS.forEach((entry) -> {
       RecipeProvider.createStairsRecipe(entry.stairs, Ingredient.ofItems(entry.source))
-          .criterion("has_concrete", RecipeProvider.conditionsFromTag(SlabsStairsItemTagProvider.CONCRETE))
+          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
           .offerTo(exporter);
       RecipeProvider.offerStonecuttingRecipe(exporter, entry.stairs, entry.source);
     });
@@ -41,7 +41,7 @@ public class SlabsStairsRecipeProvider extends FabricRecipeProvider {
 
     SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
       RecipeProvider.createTransmutationRecipe(entry.button, Ingredient.ofItems(entry.source))
-          .criterion("has_concrete", RecipeProvider.conditionsFromTag(SlabsStairsItemTagProvider.CONCRETE))
+          .criterion(RecipeProvider.hasItem(entry.source), RecipeProvider.conditionsFromItem(entry.source))
           .offerTo(exporter);
     });
   }
