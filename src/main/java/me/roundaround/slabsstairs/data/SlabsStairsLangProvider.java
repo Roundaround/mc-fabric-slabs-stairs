@@ -27,5 +27,15 @@ public class SlabsStairsLangProvider extends AbstractLangProvider {
       String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
       consumer.accept(entry.wall.getTranslationKey(), sourceName + " Wall");
     });
+
+    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
+      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
+      consumer.accept(entry.pressurePlate.getTranslationKey(), sourceName + " Pressure Plate");
+    });
+
+    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
+      String sourceName = Text.translatable(entry.source.getTranslationKey()).getString();
+      consumer.accept(entry.button.getTranslationKey(), sourceName + " Button");
+    });
   }
 }

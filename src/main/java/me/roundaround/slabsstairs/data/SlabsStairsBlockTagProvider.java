@@ -23,6 +23,12 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
   public static final TagKey<Block> CONCRETE_WALLS = TagKey.of(
       Registry.BLOCK_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_walls"));
+  public static final TagKey<Block> CONCRETE_PRESSURE_PLATES = TagKey.of(
+      Registry.BLOCK_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "concrete_pressure_plates"));
+  public static final TagKey<Block> CONCRETE_BUTTONS = TagKey.of(
+      Registry.BLOCK_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "concrete_buttons"));
 
   public SlabsStairsBlockTagProvider(FabricDataGenerator dataGenerator) {
     super(dataGenerator);
@@ -54,13 +60,28 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
             .map(entry -> entry.wall)
             .toArray(Block[]::new));
 
+    getOrCreateTagBuilder(CONCRETE_PRESSURE_PLATES)
+        .add(SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES
+            .stream()
+            .map(entry -> entry.pressurePlate)
+            .toArray(Block[]::new));
+
+    getOrCreateTagBuilder(CONCRETE_BUTTONS)
+        .add(SlabsStairsBlocks.CONCRETE_BUTTONS
+            .stream()
+            .map(entry -> entry.button)
+            .toArray(Block[]::new));
+
     getOrCreateTagBuilder(BlockTags.SLABS).addTag(CONCRETE_SLABS);
     getOrCreateTagBuilder(BlockTags.STAIRS).addTag(CONCRETE_STAIRS);
     getOrCreateTagBuilder(BlockTags.WALLS).addTag(CONCRETE_WALLS);
+    getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).addTag(CONCRETE_PRESSURE_PLATES);
+    getOrCreateTagBuilder(BlockTags.BUTTONS).addTag(CONCRETE_BUTTONS);
 
     getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
         .addTag(CONCRETE_SLABS)
         .addTag(CONCRETE_STAIRS)
-        .addTag(CONCRETE_WALLS);
+        .addTag(CONCRETE_WALLS)
+        .addTag(CONCRETE_PRESSURE_PLATES);
   }
 }

@@ -23,5 +23,13 @@ public class SlabsStairsLootTableProvider extends FabricBlockLootTableProvider {
     SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
       addDrop(entry.wall);
     });
+
+    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
+      addDrop(entry.pressurePlate);
+    });
+
+    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
+      addDrop(entry.button);
+    });
   }
 }

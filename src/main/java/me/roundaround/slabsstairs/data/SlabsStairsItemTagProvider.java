@@ -21,6 +21,12 @@ public class SlabsStairsItemTagProvider extends ItemTagProvider {
   public static final TagKey<Item> CONCRETE_WALLS = TagKey.of(
       Registry.ITEM_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_walls"));
+  public static final TagKey<Item> CONCRETE_PRESSURE_PLATES = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "concrete_pressure_plates"));
+  public static final TagKey<Item> CONCRETE_BUTTONS = TagKey.of(
+      Registry.ITEM_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "concrete_buttons"));
 
   public SlabsStairsItemTagProvider(FabricDataGenerator dataGenerator, BlockTagProvider blockTagProvider) {
     super(dataGenerator, blockTagProvider);
@@ -32,5 +38,7 @@ public class SlabsStairsItemTagProvider extends ItemTagProvider {
     copy(SlabsStairsBlockTagProvider.CONCRETE_SLABS, CONCRETE_SLABS);
     copy(SlabsStairsBlockTagProvider.CONCRETE_STAIRS, CONCRETE_STAIRS);
     copy(SlabsStairsBlockTagProvider.CONCRETE_WALLS, CONCRETE_WALLS);
+    copy(SlabsStairsBlockTagProvider.CONCRETE_PRESSURE_PLATES, CONCRETE_PRESSURE_PLATES);
+    copy(SlabsStairsBlockTagProvider.CONCRETE_BUTTONS, CONCRETE_BUTTONS);
   }
 }

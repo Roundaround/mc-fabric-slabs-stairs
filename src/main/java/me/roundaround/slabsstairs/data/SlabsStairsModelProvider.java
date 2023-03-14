@@ -36,13 +36,24 @@ public class SlabsStairsModelProvider extends FabricModelProvider {
     SlabsStairsBlocks.CONCRETE_WALLS.forEach((entry) -> {
       registerWall(entry.wall, entry.source, blockStateModelGenerator);
     });
+
+    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
+      registerPressurePlate(entry.pressurePlate, entry.source, blockStateModelGenerator);
+    });
+
+    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
+      registerButton(entry.button, entry.source, blockStateModelGenerator);
+    });
   }
 
   @Override
   public void generateItemModels(ItemModelGenerator itemModelGenerator) {
   }
 
-  private void registerSlab(Block slab, Block full, BlockStateModelGenerator blockStateModelGenerator) {
+  private void registerSlab(
+      Block slab,
+      Block full,
+      BlockStateModelGenerator blockStateModelGenerator) {
     Consumer<BlockStateSupplier> blockStateCollector = blockStateModelGenerator.blockStateCollector;
     BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
 
@@ -54,10 +65,14 @@ public class SlabsStairsModelProvider extends FabricModelProvider {
         slabId,
         slabTopId,
         ModelIds.getBlockModelId(full)));
+
     blockStateModelGenerator.registerParentedItemModel(slab, slabId);
   }
 
-  private void registerStairs(Block stairs, Block full, BlockStateModelGenerator blockStateModelGenerator) {
+  private void registerStairs(
+      Block stairs,
+      Block full,
+      BlockStateModelGenerator blockStateModelGenerator) {
     Consumer<BlockStateSupplier> blockStateCollector = blockStateModelGenerator.blockStateCollector;
     BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
 
@@ -70,10 +85,14 @@ public class SlabsStairsModelProvider extends FabricModelProvider {
         stairsInnerId,
         stairsId,
         stairsOuterId));
+
     blockStateModelGenerator.registerParentedItemModel(stairs, stairsId);
   }
 
-  private void registerWall(Block wall, Block full, BlockStateModelGenerator blockStateModelGenerator) {
+  private void registerWall(
+      Block wall,
+      Block full,
+      BlockStateModelGenerator blockStateModelGenerator) {
     Consumer<BlockStateSupplier> blockStateCollector = blockStateModelGenerator.blockStateCollector;
     BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
 
@@ -86,7 +105,42 @@ public class SlabsStairsModelProvider extends FabricModelProvider {
         wallPostId,
         wallLowId,
         wallTallId));
-    Identifier wallId = Models.WALL_INVENTORY.upload(wall, texturedModel.getTextures(), modelCollector);
-    blockStateModelGenerator.registerParentedItemModel(wall, wallId);
+
+    Identifier inventoryId = Models.WALL_INVENTORY.upload(wall, texturedModel.getTextures(), modelCollector);
+    blockStateModelGenerator.registerParentedItemModel(wall, inventoryId);
+  }
+
+  private void registerPressurePlate(
+      Block pressurePlate,
+      Block full,
+      BlockStateModelGenerator blockStateModelGenerator) {
+    Consumer<BlockStateSupplier> blockStateCollector = blockStateModelGenerator.blockStateCollector;
+    BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
+
+    TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(full);
+    Identifier pressurePlateUpId = Models.PRESSURE_PLATE_UP.upload(pressurePlate, texturedModel.getTextures(),
+        modelCollector);
+    Identifier pressurePlateDownId = Models.PRESSURE_PLATE_DOWN.upload(pressurePlate, texturedModel.getTextures(),
+        modelCollector);
+    blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(
+        pressurePlate,
+        pressurePlateUpId,
+        pressurePlateDownId));
+  }
+
+  private void registerButton(Block button, Block full, BlockStateModelGenerator blockStateModelGenerator) {
+    Consumer<BlockStateSupplier> blockStateCollector = blockStateModelGenerator.blockStateCollector;
+    BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
+
+    TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(full);
+    Identifier buttonId = Models.BUTTON.upload(button, texturedModel.getTextures(), modelCollector);
+    Identifier buttonPressedId = Models.BUTTON_PRESSED.upload(button, texturedModel.getTextures(), modelCollector);
+    blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(
+        button,
+        buttonId,
+        buttonPressedId));
+
+    Identifier inventoryId = Models.BUTTON_INVENTORY.upload(button, texturedModel.getTextures(), modelCollector);
+    blockStateModelGenerator.registerParentedItemModel(button, inventoryId);
   }
 }

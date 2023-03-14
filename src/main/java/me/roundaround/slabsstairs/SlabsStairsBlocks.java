@@ -5,8 +5,11 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
+import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
+import net.minecraft.block.StoneButtonBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -130,6 +133,136 @@ public class SlabsStairsBlocks {
   public static final Block BLACK_CONCRETE_WALL = new WallBlock(
       AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
 
+  public static final Block WHITE_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block ORANGE_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block MAGENTA_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.MAGENTA_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block LIGHT_BLUE_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.LIGHT_BLUE_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block YELLOW_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block LIME_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.LIME_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block PINK_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.PINK_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block GRAY_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.GRAY_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block LIGHT_GRAY_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.LIGHT_GRAY_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block CYAN_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.CYAN_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block PURPLE_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.PURPLE_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block BLUE_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.BLUE_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block BROWN_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.BROWN_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block GREEN_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.GREEN_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block RED_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.RED_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+  public static final Block BLACK_CONCRETE_PRESSURE_PLATE = new PressurePlateBlock(
+      PressurePlateBlock.ActivationRule.MOBS,
+      AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE)
+          .requiresTool()
+          .noCollision()
+          .strength(0.5f));
+
+  public static final Block WHITE_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block ORANGE_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block MAGENTA_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block LIGHT_BLUE_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block YELLOW_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block LIME_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block PINK_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block GRAY_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block LIGHT_GRAY_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block CYAN_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block PURPLE_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block BLUE_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block BROWN_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block GREEN_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block RED_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+  public static final Block BLACK_CONCRETE_BUTTON = new StoneButtonBlock(
+      AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f));
+
   public static final ImmutableList<SlabEntry> CONCRETE_SLABS = ImmutableList.of(
       new SlabEntry(WHITE_CONCRETE_SLAB, Blocks.WHITE_CONCRETE),
       new SlabEntry(ORANGE_CONCRETE_SLAB, Blocks.ORANGE_CONCRETE),
@@ -184,6 +317,42 @@ public class SlabsStairsBlocks {
       new WallEntry(RED_CONCRETE_WALL, Blocks.RED_CONCRETE),
       new WallEntry(BLACK_CONCRETE_WALL, Blocks.BLACK_CONCRETE));
 
+  public static final ImmutableList<PressurePlateEntry> CONCRETE_PRESSURE_PLATES = ImmutableList.of(
+      new PressurePlateEntry(WHITE_CONCRETE_PRESSURE_PLATE, Blocks.WHITE_CONCRETE),
+      new PressurePlateEntry(ORANGE_CONCRETE_PRESSURE_PLATE, Blocks.ORANGE_CONCRETE),
+      new PressurePlateEntry(MAGENTA_CONCRETE_PRESSURE_PLATE, Blocks.MAGENTA_CONCRETE),
+      new PressurePlateEntry(LIGHT_BLUE_CONCRETE_PRESSURE_PLATE, Blocks.LIGHT_BLUE_CONCRETE),
+      new PressurePlateEntry(YELLOW_CONCRETE_PRESSURE_PLATE, Blocks.YELLOW_CONCRETE),
+      new PressurePlateEntry(LIME_CONCRETE_PRESSURE_PLATE, Blocks.LIME_CONCRETE),
+      new PressurePlateEntry(PINK_CONCRETE_PRESSURE_PLATE, Blocks.PINK_CONCRETE),
+      new PressurePlateEntry(GRAY_CONCRETE_PRESSURE_PLATE, Blocks.GRAY_CONCRETE),
+      new PressurePlateEntry(LIGHT_GRAY_CONCRETE_PRESSURE_PLATE, Blocks.LIGHT_GRAY_CONCRETE),
+      new PressurePlateEntry(CYAN_CONCRETE_PRESSURE_PLATE, Blocks.CYAN_CONCRETE),
+      new PressurePlateEntry(PURPLE_CONCRETE_PRESSURE_PLATE, Blocks.PURPLE_CONCRETE),
+      new PressurePlateEntry(BLUE_CONCRETE_PRESSURE_PLATE, Blocks.BLUE_CONCRETE),
+      new PressurePlateEntry(BROWN_CONCRETE_PRESSURE_PLATE, Blocks.BROWN_CONCRETE),
+      new PressurePlateEntry(GREEN_CONCRETE_PRESSURE_PLATE, Blocks.GREEN_CONCRETE),
+      new PressurePlateEntry(RED_CONCRETE_PRESSURE_PLATE, Blocks.RED_CONCRETE),
+      new PressurePlateEntry(BLACK_CONCRETE_PRESSURE_PLATE, Blocks.BLACK_CONCRETE));
+
+  public static final ImmutableList<ButtonEntry> CONCRETE_BUTTONS = ImmutableList.of(
+      new ButtonEntry(WHITE_CONCRETE_BUTTON, Blocks.WHITE_CONCRETE),
+      new ButtonEntry(ORANGE_CONCRETE_BUTTON, Blocks.ORANGE_CONCRETE),
+      new ButtonEntry(MAGENTA_CONCRETE_BUTTON, Blocks.MAGENTA_CONCRETE),
+      new ButtonEntry(LIGHT_BLUE_CONCRETE_BUTTON, Blocks.LIGHT_BLUE_CONCRETE),
+      new ButtonEntry(YELLOW_CONCRETE_BUTTON, Blocks.YELLOW_CONCRETE),
+      new ButtonEntry(LIME_CONCRETE_BUTTON, Blocks.LIME_CONCRETE),
+      new ButtonEntry(PINK_CONCRETE_BUTTON, Blocks.PINK_CONCRETE),
+      new ButtonEntry(GRAY_CONCRETE_BUTTON, Blocks.GRAY_CONCRETE),
+      new ButtonEntry(LIGHT_GRAY_CONCRETE_BUTTON, Blocks.LIGHT_GRAY_CONCRETE),
+      new ButtonEntry(CYAN_CONCRETE_BUTTON, Blocks.CYAN_CONCRETE),
+      new ButtonEntry(PURPLE_CONCRETE_BUTTON, Blocks.PURPLE_CONCRETE),
+      new ButtonEntry(BLUE_CONCRETE_BUTTON, Blocks.BLUE_CONCRETE),
+      new ButtonEntry(BROWN_CONCRETE_BUTTON, Blocks.BROWN_CONCRETE),
+      new ButtonEntry(GREEN_CONCRETE_BUTTON, Blocks.GREEN_CONCRETE),
+      new ButtonEntry(RED_CONCRETE_BUTTON, Blocks.RED_CONCRETE),
+      new ButtonEntry(BLACK_CONCRETE_BUTTON, Blocks.BLACK_CONCRETE));
+
   public static final void registerBlocks() {
     registerBlock("white_concrete_slab", WHITE_CONCRETE_SLAB);
     registerBlock("orange_concrete_slab", ORANGE_CONCRETE_SLAB);
@@ -235,12 +404,50 @@ public class SlabsStairsBlocks {
     registerBlock("green_concrete_wall", GREEN_CONCRETE_WALL);
     registerBlock("red_concrete_wall", RED_CONCRETE_WALL);
     registerBlock("black_concrete_wall", BLACK_CONCRETE_WALL);
+
+    registerBlock("white_concrete_pressure_plate", WHITE_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("orange_concrete_pressure_plate", ORANGE_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("magenta_concrete_pressure_plate", MAGENTA_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("light_blue_concrete_pressure_plate", LIGHT_BLUE_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("yellow_concrete_pressure_plate", YELLOW_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("lime_concrete_pressure_plate", LIME_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("pink_concrete_pressure_plate", PINK_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("gray_concrete_pressure_plate", GRAY_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("light_gray_concrete_pressure_plate", LIGHT_GRAY_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("cyan_concrete_pressure_plate", CYAN_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("purple_concrete_pressure_plate", PURPLE_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("blue_concrete_pressure_plate", BLUE_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("brown_concrete_pressure_plate", BROWN_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("green_concrete_pressure_plate", GREEN_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("red_concrete_pressure_plate", RED_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+    registerBlock("black_concrete_pressure_plate", BLACK_CONCRETE_PRESSURE_PLATE, ItemGroup.REDSTONE);
+
+    registerBlock("white_concrete_button", WHITE_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("orange_concrete_button", ORANGE_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("magenta_concrete_button", MAGENTA_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("light_blue_concrete_button", LIGHT_BLUE_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("yellow_concrete_button", YELLOW_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("lime_concrete_button", LIME_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("pink_concrete_button", PINK_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("gray_concrete_button", GRAY_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("light_gray_concrete_button", LIGHT_GRAY_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("cyan_concrete_button", CYAN_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("purple_concrete_button", PURPLE_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("blue_concrete_button", BLUE_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("brown_concrete_button", BROWN_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("green_concrete_button", GREEN_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("red_concrete_button", RED_CONCRETE_BUTTON, ItemGroup.REDSTONE);
+    registerBlock("black_concrete_button", BLACK_CONCRETE_BUTTON, ItemGroup.REDSTONE);
   }
 
   private static final void registerBlock(String name, Block block) {
+    registerBlock(name, block, ItemGroup.BUILDING_BLOCKS);
+  }
+
+  private static final void registerBlock(String name, Block block, ItemGroup group) {
     Registry.register(Registry.BLOCK, new Identifier(SlabsStairsMod.MOD_ID, name), block);
     Registry.register(Registry.ITEM, new Identifier(SlabsStairsMod.MOD_ID, name),
-        new BlockItem(block, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        new BlockItem(block, new Item.Settings().group(group)));
   }
 
   public static class SlabEntry {
@@ -269,6 +476,26 @@ public class SlabsStairsBlocks {
 
     public WallEntry(Block wall, Block source) {
       this.wall = wall;
+      this.source = source;
+    }
+  }
+
+  public static class PressurePlateEntry {
+    public final Block pressurePlate;
+    public final Block source;
+
+    public PressurePlateEntry(Block pressurePlate, Block source) {
+      this.pressurePlate = pressurePlate;
+      this.source = source;
+    }
+  }
+
+  public static class ButtonEntry {
+    public final Block button;
+    public final Block source;
+
+    public ButtonEntry(Block button, Block source) {
+      this.button = button;
       this.source = source;
     }
   }

@@ -34,5 +34,15 @@ public class SlabsStairsRecipeProvider extends FabricRecipeProvider {
       RecipeProvider.offerWallRecipe(exporter, entry.wall, entry.source);
       RecipeProvider.offerStonecuttingRecipe(exporter, entry.wall, entry.source);
     });
+
+    SlabsStairsBlocks.CONCRETE_PRESSURE_PLATES.forEach((entry) -> {
+      RecipeProvider.offerPressurePlateRecipe(exporter, entry.pressurePlate, entry.source);
+    });
+
+    SlabsStairsBlocks.CONCRETE_BUTTONS.forEach((entry) -> {
+      RecipeProvider.createTransmutationRecipe(entry.button, Ingredient.ofItems(entry.source))
+          .criterion("has_concrete", RecipeProvider.conditionsFromTag(SlabsStairsItemTagProvider.CONCRETE))
+          .offerTo(exporter);
+    });
   }
 }
