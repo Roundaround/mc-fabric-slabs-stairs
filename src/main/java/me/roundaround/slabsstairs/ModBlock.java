@@ -18,6 +18,7 @@ public class ModBlock {
   private final Block wall;
   private final Block pressurePlate;
   private final Block button;
+  private final boolean stoneCuttable;
 
   private ModBlock(
       Block source,
@@ -25,7 +26,8 @@ public class ModBlock {
       Block stairs,
       Block wall,
       Block pressurePlate,
-      Block button) {
+      Block button,
+      boolean stoneCuttable) {
     this.baseId = Registry.BLOCK.getId(source).getPath();
     this.source = source;
     this.slab = slab;
@@ -33,9 +35,10 @@ public class ModBlock {
     this.wall = wall;
     this.pressurePlate = pressurePlate;
     this.button = button;
+    this.stoneCuttable = stoneCuttable;
   }
 
-  public static ModBlock everything(Block source) {
+  public static ModBlock stoneLike(Block source) {
     return new ModBlock(
         source,
         new SlabBlock(AbstractBlock.Settings.copy(source)),
@@ -46,7 +49,19 @@ public class ModBlock {
                 .requiresTool()
                 .noCollision()
                 .strength(0.5f)),
-        new StoneButtonBlock(AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f)));
+        new StoneButtonBlock(AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5f)),
+        true);
+  }
+
+  public static ModBlock slabAndStairs(Block source) {
+    return new ModBlock(
+        source,
+        new SlabBlock(AbstractBlock.Settings.copy(source)),
+        new StairsBlock(source.getDefaultState(), AbstractBlock.Settings.copy(source)),
+        null,
+        null,
+        null,
+        false);
   }
 
   public String getBaseId() {
@@ -95,5 +110,9 @@ public class ModBlock {
 
   public Block getButton() {
     return button;
+  }
+
+  public boolean isStoneCuttable() {
+    return stoneCuttable;
   }
 }

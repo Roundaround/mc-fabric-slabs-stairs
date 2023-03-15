@@ -27,6 +27,7 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
   public static final TagKey<Block> CONCRETE_BUTTONS = TagKey.of(
       Registry.BLOCK_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "concrete_buttons"));
+
   public static final TagKey<Block> TERRACOTTA_SLABS = TagKey.of(
       Registry.BLOCK_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "terracotta_slabs"));
@@ -42,6 +43,13 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
   public static final TagKey<Block> TERRACOTTA_BUTTONS = TagKey.of(
       Registry.BLOCK_KEY,
       new Identifier(SlabsStairsMod.MOD_ID, "terracotta_buttons"));
+
+  public static final TagKey<Block> WOOL_SLABS = TagKey.of(
+      Registry.BLOCK_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "wool_slabs"));
+  public static final TagKey<Block> WOOL_STAIRS = TagKey.of(
+      Registry.BLOCK_KEY,
+      new Identifier(SlabsStairsMod.MOD_ID, "wool_stairs"));
 
   public SlabsStairsBlockTagProvider(FabricDataGenerator dataGenerator) {
     super(dataGenerator);
@@ -111,13 +119,28 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
             .map(ModBlock::getButton)
             .toArray(Block[]::new));
 
+    getOrCreateTagBuilder(WOOL_SLABS)
+        .add(SlabsStairsBlocks.WOOL_MOD_BLOCKS
+            .stream()
+            .filter(ModBlock::hasSlab)
+            .map(ModBlock::getSlab)
+            .toArray(Block[]::new));
+    getOrCreateTagBuilder(WOOL_STAIRS)
+        .add(SlabsStairsBlocks.WOOL_MOD_BLOCKS
+            .stream()
+            .filter(ModBlock::hasStairs)
+            .map(ModBlock::getStairs)
+            .toArray(Block[]::new));
+
     getOrCreateTagBuilder(BlockTags.SLABS)
         .addTag(CONCRETE_SLABS)
-        .addTag(TERRACOTTA_SLABS);
+        .addTag(TERRACOTTA_SLABS)
+        .addTag(WOOL_SLABS);
 
     getOrCreateTagBuilder(BlockTags.STAIRS)
         .addTag(CONCRETE_STAIRS)
-        .addTag(TERRACOTTA_STAIRS);
+        .addTag(TERRACOTTA_STAIRS)
+        .addTag(WOOL_STAIRS);
 
     getOrCreateTagBuilder(BlockTags.WALLS)
         .addTag(CONCRETE_WALLS)
@@ -142,5 +165,9 @@ public class SlabsStairsBlockTagProvider extends BlockTagProvider {
         .addTag(TERRACOTTA_PRESSURE_PLATES)
         .addTag(CONCRETE_BUTTONS)
         .addTag(TERRACOTTA_BUTTONS);
+
+    getOrCreateTagBuilder(BlockTags.DAMPENS_VIBRATIONS)
+        .addTag(WOOL_SLABS)
+        .addTag(WOOL_STAIRS);
   }
 }

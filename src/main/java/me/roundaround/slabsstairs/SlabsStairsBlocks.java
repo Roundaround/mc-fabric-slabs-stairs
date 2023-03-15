@@ -48,45 +48,69 @@ public class SlabsStairsBlocks {
       Blocks.RED_TERRACOTTA,
       Blocks.BLACK_TERRACOTTA);
 
+  private static final ImmutableList<Block> WOOL = ImmutableList.of(
+      Blocks.WHITE_WOOL,
+      Blocks.ORANGE_WOOL,
+      Blocks.MAGENTA_WOOL,
+      Blocks.LIGHT_BLUE_WOOL,
+      Blocks.YELLOW_WOOL,
+      Blocks.LIME_WOOL,
+      Blocks.PINK_WOOL,
+      Blocks.GRAY_WOOL,
+      Blocks.LIGHT_GRAY_WOOL,
+      Blocks.CYAN_WOOL,
+      Blocks.PURPLE_WOOL,
+      Blocks.BLUE_WOOL,
+      Blocks.BROWN_WOOL,
+      Blocks.GREEN_WOOL,
+      Blocks.RED_WOOL,
+      Blocks.BLACK_WOOL);
+
   public static final ImmutableList<ModBlock> CONCRETE_MOD_BLOCKS = CONCRETE.stream()
-      .map(ModBlock::everything)
+      .map(ModBlock::stoneLike)
       .collect(ImmutableList.toImmutableList());
 
   public static final ImmutableList<ModBlock> TERRACOTTA_MOD_BLOCKS = TERRACOTTA.stream()
-      .map(ModBlock::everything)
+      .map(ModBlock::stoneLike)
+      .collect(ImmutableList.toImmutableList());
+
+  public static final ImmutableList<ModBlock> WOOL_MOD_BLOCKS = WOOL.stream()
+      .map(ModBlock::slabAndStairs)
       .collect(ImmutableList.toImmutableList());
 
   public static final ImmutableList<ModBlock> ALL_MOD_BLOCKS = ImmutableList.<ModBlock>builder()
       .addAll(CONCRETE_MOD_BLOCKS)
       .addAll(TERRACOTTA_MOD_BLOCKS)
+      .addAll(WOOL_MOD_BLOCKS)
       .build();
 
   public static final void registerBlocks() {
-    ALL_MOD_BLOCKS.forEach(SlabsStairsBlocks::registerModBlock);
+    // Register all blocks, but grouped by block type
+    ALL_MOD_BLOCKS.stream().filter(ModBlock::hasSlab).forEach(SlabsStairsBlocks::registerSlab);
+    ALL_MOD_BLOCKS.stream().filter(ModBlock::hasStairs).forEach(SlabsStairsBlocks::registerStairs);
+    ALL_MOD_BLOCKS.stream().filter(ModBlock::hasWall).forEach(SlabsStairsBlocks::registerWall);
+    ALL_MOD_BLOCKS.stream().filter(ModBlock::hasPressurePlate).forEach(SlabsStairsBlocks::registerPressurePlate);
+    ALL_MOD_BLOCKS.stream().filter(ModBlock::hasButton).forEach(SlabsStairsBlocks::registerButton);
   }
 
-  private static final void registerModBlock(ModBlock entry) {
-    String baseName = entry.getBaseId();
-
-    if (entry.hasSlab()) {
-      registerBlock(baseName + "_slab", entry.getSlab());
-    }
-    if (entry.hasStairs()) {
-      registerBlock(baseName + "_stairs", entry.getStairs());
-    }
-    if (entry.hasWall()) {
-      registerBlock(baseName + "_wall", entry.getWall());
-    }
-    if (entry.hasPressurePlate()) {
-      registerBlock(baseName + "_pressure_plate", entry.getPressurePlate(), ItemGroup.REDSTONE);
-    }
-    if (entry.hasButton()) {
-      registerBlock(baseName + "_button", entry.getButton(), ItemGroup.REDSTONE);
-    }
+  private static final void registerSlab(ModBlock entry) {
+    registerBlock(entry.getBaseId() + "_slab", entry.getSlab(), ItemGroup.BUILDING_BLOCKS);
   }
 
-  private static final void registerBlock(String name, Block block) {
-    registerBlock(name, block, ItemGroup.BUILDING_BLOCKS);
+  private static final void registerStairs(ModBlock entry) {
+    registerBlock(entry.getBaseId() + "_stairs", entry.getStairs(), ItemGroup.BUILDING_BLOCKS);
+  }
+
+  private static final void registerWall(ModBlock entry) {
+    registerBlock(entry.getBaseId() + "_wall", entry.getWall(), ItemGroup.BUILDING_BLOCKS);
+  }
+
+  private static final void registerPressurePlate(ModBlock entry) {
+    registerBlock(entry.getBaseId() + "_pressure_plate", entry.getPressurePlate(), ItemGroup.REDSTONE);
+  }
+
+  private static final void registerButton(ModBlock entry) {
+    registerBlock(entry.getBaseId() + "_button", entry.getButton(), ItemGroup.REDSTONE);
   }
 
   private static final void registerBlock(String name, Block block, ItemGroup group) {
